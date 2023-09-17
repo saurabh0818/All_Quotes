@@ -1,0 +1,132 @@
+{% extends "SuperLogin/main.html" %}
+
+{% block link %}
+
+
+{% endblock %}
+
+{% block active_student %} active {% endblock %}
+
+{% block body %}
+
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-info">
+            <h3 class=" mb-2 text-white"><i class="fas fa-graduation-cap"></i>Add/Update/Delete Quotes</h3>
+        </div>
+        {% if messages %}
+        {% for msg in messages %}
+
+
+        <div class="alert alert-info alert-dismissible fade show" role="alert" id="msg">
+            <i class="fas fa-flag fa-1x text-success"></i><strong> Note : </strong> <b>{{msg}}</b>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        {% endfor %}
+
+        {% endif %}
+        <div class="card mx-3 my-5">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" data-toggle="tab" href="#new"><strong>Add New Quotes
+                            </strong></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" data-toggle="tab" href="#view"><strong>Update / Delete
+                                Quotes</strong> </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Page Heading -->
+
+            <!-- DataTales Example -->
+
+            <div class="tab-content card-body shadow">
+
+                <!-------------------- Insert Expenditure  -------------------->
+                {% load crispy_forms_tags %}
+
+                <div id="new" class="tab-pane  active">
+                    <div class="row ">
+                        <div class="col-lg-3">
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card shadow">
+                                <div class="card-body shadow">
+                                    <form target="" method="POST">{% csrf_token %}
+                                        {{quotes_form|crispy}}
+                                        <br>
+                                        <a href="" class="btn btn-danger float-right ml-3 shadow">Clear</a>
+                                        <input class="btn btn-primary float-right shadow" type="submit" value="Submit">
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="view" class="tab-pane">
+                    <div class="table-responsive ">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Quote</th>
+                                    <th>Type</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for x in quotes_data %}
+                                <tr>
+                                    <td>{{x.Author_Id.name}}</td>
+                                    <td>{{x.quotes}}</td>
+                                    <td>{{x.type_quotes}}</td>
+
+                                    <td class="text-center"><a class="btn btn-info shadow"
+                                            href="{% url 'quotes_update' x.id %}" role="button"><i
+                                                class="fas fa-edit"></i></a></td>
+                                    <td class="text-center"><a class="btn btn-danger shadow"
+                                            href="{% url 'delete_quotes' x.id %}" role="button"><i
+                                                class="fas fa-trash-alt"></i></a></td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    {% endblock %}
+
+    {% block js %} {% endblock %}

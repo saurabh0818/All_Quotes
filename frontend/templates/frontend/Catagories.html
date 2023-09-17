@@ -1,0 +1,74 @@
+{% extends "frontend/main.html" %}
+{% load static %}
+{% block link %}{% endblock %}
+
+{% block body %}
+
+<!-- Presentation View -->
+
+<div class="page-header" data-parallax="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="brand text-center">
+                    <h1>
+                        Quotes catagories
+                    </h1>
+
+                    <h3 class="d-none d-md-block sameline">Choose Quotes According to Your Needs
+                    </h3>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Presentation View -->
+
+<!-- Content of Page  -->
+
+<div class="main main-raised ">
+    <div class="profile-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <br>
+                    <h3 class="text-center text-dark col-md-12 col-sm-12 col-lg-12 col-xs-12"><b><i
+                                class="fas fa-cubes"></i> SELECT CATEGORIES</b></h3>
+                </div>
+            </div>
+            <hr>
+            <br>
+            <div class="row text-center">
+
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 mb-12">
+                    {% for catag in catago %}
+                    <a href="{% url 'Catagory' catag %}" class="btn btn btn-outline-danger btn-round"
+                        name='{{catag}}'>{{catag}}</a>
+                    {% endfor %}
+
+                </div>
+
+
+
+            </div>
+            <br>
+            <div class="row my-3">
+                <div class="col-md-12 text-center mb-4">
+                    <a href="{% url 'Catagories' %}"><button class="btn bg-germi btn-round">
+                            <i class="material-icons">local_library </i> Explore More
+                        </button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- End Content Page  -->
+
+
+{% endblock %}

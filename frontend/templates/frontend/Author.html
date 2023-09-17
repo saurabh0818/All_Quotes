@@ -1,0 +1,126 @@
+{% extends "frontend/main.html" %}
+{% load static %}
+{% block link %}
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+
+<style>
+    .sameline {
+        display: inline-block;
+    }
+
+    .brand-color {
+        background: #dd0000 !important;
+
+    }
+</style>
+
+{% endblock %}
+
+<!-- Active Navigation tab for Author -->
+{% block Authactive %}active{% endblock %}
+
+
+<!-- Opening Body Block -->
+{% block body %}
+
+<!-- Presentation View -->
+
+<div class="page-header" data-parallax="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ml-auto mr-auto">
+                <div class="brand text-center">
+                    <h1>
+                        Our Authors
+                    </h1>
+
+                    <h3 class="d-none d-md-block sameline">We have Huge Collection of Authors
+                    </h3>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Presentation View -->
+
+<!-- Content of Page  -->
+
+<div class="main main-raised">
+    <div class="profile-content">
+        <div class="container">
+            <!-- nav tabs -->
+            <br>
+            <div id="nav-tabs">
+                <h3 class="text-center"></h3>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+
+                        <!-- Tabs with icons on Card -->
+
+                        <div class="card ">
+                            <div class="card-header brand-color ">
+                                <div class="card-text">
+                                    <h4 class="card-title text-center text-light">Our Best Collection</h4>
+                                </div>
+                            </div>
+                            <div class="card-body">
+
+                                <table class="table table-bordered" id="mytable" style="width:100%">
+                                    <thead class="thead-light">
+                                        <tr>
+
+                                            <th scope="col">Author Name</th>
+                                            <th scope="col">Profession</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for authName in Auth %}
+                                        <tr>
+
+                                            <td><a id="myAnchor" href="{% url 'Quotes' authName.name %}"
+                                                    class="text-danger text-center"><b>{{authName.name}}</b></a></td>
+                                            <td>{{authName.occupation}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <!-- End Tabs with icons on Card -->
+                    </div>
+
+                    <div class="col-md-1"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- End Content Page  -->
+
+
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#mytable').DataTable();
+    });
+</script>
+
+{% endblock %}

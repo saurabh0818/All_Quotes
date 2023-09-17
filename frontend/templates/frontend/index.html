@@ -1,0 +1,234 @@
+{% extends "frontend/main.html" %}
+{% load static%}
+{% block link %}
+
+
+<link rel="stylesheet" href="{% static 'css/data.css' %}">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="{% static 'js/demo/dataanalyse.js' %}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+
+
+
+{% endblock %}
+{% block body %}
+
+
+
+
+<div class="page-header " data-parallax="true">
+	<div class="container">
+		<span class="d-none d-lg-block d-xl-block">
+			<div class="row">
+				<h4 class="moveon"><i>{{seventy_five_char_word.quotes}}.</i></h4>
+				<h6 class="moveon text-center">-{{seventy_five_char_word.author}}
+				</h6>
+			</div>
+		</span>
+		<span class="d-block d-sm-block d-md-block d-lg-none">
+			<div class="row">
+				<h4 class="moveon"><i>{{thirty_five_char_word.quotes}}.</i></h4>
+				<h6 class="moveon text-center">-{{thirty_five_char_word.author}}
+				</h6>
+			</div>
+		</span>
+	</div>
+</div>
+
+
+<!----------------	SEARCH AUTHOR  ------------------->
+
+<div class="main main-raised">
+	<div class="profile-content">
+		<div class="container">
+			<div>
+				<br>
+				<h3 class="text-center text-dark"><b><i class="fas fa-search"></i> SEARCH AUTHOR BY LETTER <b></h3>
+				<hr>
+			</div>
+
+			<div class="row text-center">
+				<div class="col-lg-1 ">
+				</div>
+				<div class="col-lg-10 col-sm-12 col-xs-12">
+					{% for x in Alpha %}
+					<a href="{% url 'Authors' x%}">
+						<button class="btn bg-germi btn-fab btn-round mr-1 ">
+							{{x}}
+						</button>
+					</a>
+					{% endfor %}
+
+
+				</div>
+				<div class="col-lg-1">
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+</div>
+
+<!----------------	SELECT CATEGORIES  ------------------->
+
+
+<div class="main main-raised my-5">
+	<div class="profile-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<br>
+					<h3 class="text-center text-dark col-md-12 col-sm-12 col-lg-12 col-xs-12"><b><i
+								class="fas fa-cubes"></i> SELECT CATEGORIES</b></h3>
+				</div>
+			</div>
+			<hr>
+			<br>
+			<div class="row text-center">
+
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 mb-12">
+					{% for catag in catago %}
+					<a href="{% url 'Catagory' catag %}" class="btn btn btn-outline-danger btn-round"
+						name='{{catag}}'>{{catag}}</a>
+					{% endfor %}
+
+				</div>
+
+
+
+			</div>
+			<br>
+			<div class="row my-3">
+				<div class="col-md-12 text-center mb-4">
+					<a href="{% url 'Catagories' %}"><button class="btn bg-germi btn-round">
+							<i class="material-icons">local_library </i> Explore More
+						</button></a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<!----------------	FAMOUS QUOTES  ------------------->
+
+
+<div class="main main-raised my-5">
+	<div class="profile-content">
+		<div class="container">
+			<br>
+			<h3 class="text-dark text-center"><i class="fas fa-quote-right"></i> <b>POPULAR DAY'S <i
+						class="fas fa-quote-left"></i></b></h3>
+			<hr>
+
+			<div class="row text-center">
+
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 mb-12">
+					{% for spcl in spcl_catago %}
+					<a href="{% url 'Days' spcl %}" class="btn btn btn-outline-danger btn-round">{{spcl}}</a>
+					{% endfor %}
+				</div>
+
+
+
+			</div>
+			<br>
+			<div class="row my-3">
+				<div class="col-md-12 text-center mb-4">
+					<a href="{% url 'days' %}"><button class="btn bg-germi btn-round">
+							<i class="material-icons">local_library </i> Explore More
+						</button></a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+</div>
+
+
+
+<!-- Top Three Famous Quotes -->
+
+<div class="main main-raised my-5">
+	<div class="profile-content">
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h3 class="text-dark "><i class="fas fa-users"></i> <b>Famous Occasion Quotes </b></h3>
+				</div>
+			</div>
+			<hr>
+
+			<div class="row">
+				{% for sd in special_data %}
+				<div class="col-lg-4 col-md-4 col-sm-12  d-flex justify-content-center">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{{sd.images.url}}" alt="Card image cap" width="30" height="200">
+						<div class="card-body text-center">
+							<h5 class="card-title text-center"></i> {{sd.catagories}}
+							</h5>
+
+							<a href="{% url 'Days' sd.catagories %}" class="btn btn bg-germi ">View Quotes</a>
+
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<br>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- data analyse -->
+
+<div class="main main-raised my-5">
+	<div class="profile-content">
+		<br>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h3 class="text-dark "><i class="fas fa-database"></i> <b>Our Huge Collection</b></h3>
+			</div>
+		</div>
+		<hr>
+
+		<div class="container">
+			<div class="row">
+				<div class="four col-md-4">
+					<div class="counter-box colored"> <i class="fas fa-pen-fancy"></i> <span
+							class="counter">{{total_data_author}}</span>
+						<p>Total Authors</p>
+					</div>
+				</div>
+				<div class="four col-md-4">
+					<div class="counter-box"> <i class="fas fa-quote-right"></i> <span
+							class="counter">{{total_data_quotes}}</span>
+						<p>Total Quotes</p>
+					</div>
+				</div>
+				<div class="four col-md-4">
+					<div class="counter-box colored"> <i class="fas fa-gifts"></i> <span
+							class="counter">{{total_data_spcl_msg}}</span>
+						<p>Total Special Messages</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<br>
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
