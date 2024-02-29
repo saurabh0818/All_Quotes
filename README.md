@@ -3,10 +3,10 @@ This repository hosts a web application developed using Django and Python, desig
 <br>
 # Features
 <p align="center">
-  <a href="#Extensive-Quote-Database:">Extensive Quote Database</a> •
+  <a href="#Extensive-Quote-Database">Extensive Quote Database</a> •
   <a href="#Category-Exploration">Category Exploration</a> •
-  <a href="#Social-Media-Sharing:">Social Media Sharing:</a> •
-  <a href="#User-Friendly-Interface:">User-Friendly Interface</a> •
+  <a href="#Social-Media-Sharing">Social Media Sharing:</a> •
+  <a href="#User-Friendly-Interface">User-Friendly Interface</a> •
 </p>
 <br>
 
