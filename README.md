@@ -26,7 +26,7 @@ This repository hosts a web application developed using Django and Python, desig
 * Clone the repository to your local machine.
 * Ensure you have Python and Django installed.
 * Install the required dependencies using
-  - pip install -r requirements.txt
+  -pip install -r requirements.txt
 
 # 2 Database Setup:
 * Configure your database settings in settings.py
