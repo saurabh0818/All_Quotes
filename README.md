@@ -9,14 +9,15 @@ This repository contains a web application developed using Django and Python tai
   <a href="#Student-Management">Student Management</a> •
 </p>
 <br>
-## * Dashboard:
+
+## Dashboard:
     - Provides an overview of key metrics and statistics related to student enrollment, attendance, revenue, and more.
     - Allows administrators to quickly assess the performance and status of the coaching class.
-## * Report Generation:
+## Report Generation:
     - Enables the generation of detailed reports on various aspects such as student performance, attendance records, financial summaries, etc.
-## * Expenditure Tracking:
+## Expenditure Tracking:
     - Facilitates tracking of expenditures incurred by the coaching class including expenses on infrastructure, staff salaries, utilities, etc.
     - Helps in monitoring and managing the budget effectively.
-## * Student Management:
+## Student Management:
     - Provides functionalities for managing student profiles, including registration, attendance tracking, academic performance monitoring, etc.
     
